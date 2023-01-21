@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat-pod
+  namespace: test-ns
+  labels:
+    type: ci-cd
+    author: suresh
+spec:
+  containers:
+    - name: tomcat1
+      image: tomee
+      ports:
+        - containerPort: 8080
+          hostPort: 9090
+...
+

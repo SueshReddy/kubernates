@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: myjenkins-pod
+  labels:
+    type: ci-cd
+    author: suresh
+spec:
+  containers:
+    - name: myjenkins
+      image: jenkins/jenkins
+      ports:
+        - containerPort: 8080
+          hostPort: 9090
+...

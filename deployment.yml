@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat-d
+  labels: 
+   type: ci-cd
+   author: suresh
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      type: webserver
+      author: suresh
+  template:
+    metadata:
+      name: tomcat-pod
+      labels:
+        type: webserver
+        author: suresh
+    spec:
+      containers:
+        - name: tomcat
+          image: tomee
+          ports:
+            - containerPort: 8080
+              hostPort: 9090 
+...
