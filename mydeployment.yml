@@ -1,0 +1,24 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: tomcat-deploy
+  labels:
+    author: suresh
+spec:
+  selector:
+    matchLabels:
+      author: suresh
+  template:
+    metadata:
+      name: tomcst-pod
+      labels:
+        author: suresh
+    spec:
+      containers:
+        - name: tomcat
+          image: tomee
+          ports:
+            - containerPort: 8080
+              hostPort: 9090
+...

@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+ name: voting-app-deployment
+ labels:
+   type: votingapp
+   author: suresh
+spec: 
+ replicas: 2
+ selector: 
+  matchLabels:
+   type: votingapp
+ template: 
+  metadata:
+    name: voting-pod
+    labels:
+      type: votingapp
+      author: suresh
+  spec:
+    containers:
+      - name: voting
+        image: dockersamples/examplevotingapp_vote
+...
+
+
