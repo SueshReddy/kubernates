@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat1-deploy
+  labels:
+    type: ci-cd
+    author: suresh
+spec:
+  replicas: 3
+  selector: 
+   matchLabels:
+     type: app-server1
+  template:
+    metadata:
+      name: tomcat-pod
+      labels:
+        type: app-server1
+    spec:
+      containers:
+        - name: tomcat
+          image: tomee
+
+
+
+
+
+...

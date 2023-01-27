@@ -6,6 +6,7 @@ metadata:
   labels:
     type: ci-cd
     author: suresh
+<<<<<<< HEAD
 spec: 
  replicas: 4
  selector:
@@ -26,3 +27,25 @@ spec:
               hostPort: 9090
 ...
 
+=======
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      type: appserver
+      author: suresh
+  template:
+    metadata:
+      name: tomcat-pod
+      labels:
+        type: appserver
+        author: suresh
+    spec:
+      containers:
+        - name: tomcat
+          image: tomee
+          ports: 
+           - containerPort: 8080
+             hostPort: 9090
+...
+>>>>>>> a8f7858eaaa0de98cc28fab1fb123be5328334d3
